@@ -16,7 +16,7 @@ def get_menu(request):
         item['category_id'] = model_to_dict(Category.objects.get(id=item['category_id']))
         item['cuisine_id'] = model_to_dict(Cuisine.objects.get(id=item['cuisine_id']))
         data.append(item)
-    return JsonResponse({'data': data})
+    return JsonResponse(data, safe=False)
 
     # ## data = list(Menu_Item.objects.values('category__title'))
     # data = list(Menu_Item.objects.values())
